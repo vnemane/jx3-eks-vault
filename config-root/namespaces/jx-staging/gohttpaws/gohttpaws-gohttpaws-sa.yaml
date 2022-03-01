@@ -1,0 +1,10 @@
+# Source: gohttpaws/templates/sa.yaml
+apiVersion: v1
+kind: ServiceAccount
+metadata:
+  name: gohttpaws-gohttpaws
+  annotations:
+    meta.helm.sh/release-name: 'gohttpaws'
+  namespace: jx-staging
+  labels:
+    gitops.jenkins-x.io/pipeline: 'namespaces'
