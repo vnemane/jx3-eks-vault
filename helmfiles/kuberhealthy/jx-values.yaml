@@ -20,15 +20,22 @@ jxRequirements:
     enabled: false
     schedule: ""
   cluster:
+    chartRepository: http://jenkins-x-chartmuseum.jx.svc.cluster.local:8080
+    clusterName: tf-jx-famous-lioness
     devEnvApprovers:
     - todo
     environmentGitOwner: todo
     gitKind: github
     gitName: github
     gitServer: https://github.com
+    project: "971057899310"
     provider: eks
+    region: us-east-1
+    registry: 971057899310.dkr.ecr.us-east-1.amazonaws.com
   environments:
   - key: dev
+    owner: vnemane
+    repository: jx3-eks-vault
   - key: staging
   - key: production
   ingress:
@@ -39,9 +46,26 @@ jxRequirements:
       email: ""
       enabled: false
       production: false
+  pipelineUser:
+    username: virajnemane
   repository: nexus
   secretStorage: vault
-  vault: {}
+  storage:
+  - name: logs
+    url: s3://logs-tf-jx-famous-lioness-20220301061203603900000007
+  - name: reports
+    url: s3://reports-tf-jx-famous-lioness-20220301061203601000000005
+  - name: repository
+    url: s3://repository-tf-jx-famous-lioness-20220301061203593500000004
+  terraform: true
+  vault:
+    aws:
+      dynamoDBRegion: us-east-1
+      dynamoDBTable: vault-unseal-tf-jx-famous-lioness-0irLqdlq
+      kmsKeyId: c60c1a57-d568-4e4a-b2e7-610890ae74f7
+      kmsRegion: us-east-1
+      s3Bucket: vault-unseal-tf-jx-famous-lioness-20220301061203588000000003
+      s3Region: us-east-1
   webhook: lighthouse
 jxRequirementsIngressExternalDNS:
   enabled: false
