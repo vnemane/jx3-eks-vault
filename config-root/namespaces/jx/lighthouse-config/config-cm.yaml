@@ -41,7 +41,7 @@ data:
         - needs-rebase
         repos:
         - vnemane/jx3-eks-vault
-      target_url: http://lighthouse-jx./merge/status
+      target_url: http://lighthouse-jx.174.129.120.12.nip.io/merge/status
 kind: ConfigMap
 metadata:
   creationTimestamp: null
