@@ -1,0 +1,20 @@
+# Source: gohttpaws/templates/service.yaml
+apiVersion: v1
+kind: Service
+metadata:
+  name: gohttpaws
+  labels:
+    chart: "gohttpaws-0.0.1"
+    gitops.jenkins-x.io/pipeline: 'namespaces'
+  annotations:
+    meta.helm.sh/release-name: 'gohttpaws'
+  namespace: jx-staging
+spec:
+  type: ClusterIP
+  ports:
+    - port: 80
+      targetPort: 8080
+      protocol: TCP
+      name: http
+  selector:
+    app: gohttpaws-gohttpaws
